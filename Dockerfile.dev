@@ -1,6 +1,8 @@
 FROM node:alpine
 
 WORKDIR '/app'
+RUN git submodule update --init
+RUN git submodule foreach npm install
 
 COPY ./package.json ./
 
